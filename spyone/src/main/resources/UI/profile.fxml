@@ -4,20 +4,61 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import com.spyone.profile.*?> 
 
-<Tab fx:id="profileTab" text="Profile" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.search.SearchController">
+<Tab fx:id="profileTab" text="Profile" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.profile.FXMLTableViewController">
   <content>
-    <AnchorPane id="heatTab" prefHeight="267.0" prefWidth="378.0">
-      <children>
-        <HBox prefHeight="23.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-        <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-        <TableView layoutX="170.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
-          <columns>
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-          </columns>
-        </TableView>
-      </children>
-    </AnchorPane>
+    <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+   
+    <padding>
+        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+    </padding>
+    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Address Book"                
+        GridPane.columnIndex="0" GridPane.rowIndex="0">
+    </Label>
+    <TableView editable="true" fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+     <columns>
+    <TableColumn fx:id="firstnameColumn" text="First Name" prefWidth="100">
+        <cellValueFactory><PropertyValueFactory property="firstName" />
+        </cellValueFactory>
+     </TableColumn>
+     <TableColumn fx:id="lastnameColumn" text="Last Name" prefWidth="100">
+        <cellValueFactory><PropertyValueFactory property="lastName" />
+        </cellValueFactory>
+     </TableColumn>
+     <TableColumn fx:id="emailColumn" text="Email Address" prefWidth="200">
+        <cellValueFactory><PropertyValueFactory property="email" />
+        </cellValueFactory>
+     </TableColumn>
+</columns>    
+     <items>
+    <FXCollections fx:factory="observableArrayList">
+        <Person firstName="Jacob" lastName="Smith"  
+             email="jacob.smith@example.com"/>
+        <Person firstName="Isabella" lastName="Johnson" 
+             email="isabella.johnson@example.com"/>
+        <Person firstName="Ethan" lastName="Williams" 
+             email="ethan.williams@example.com"/>
+        <Person firstName="Emma" lastName="Jones"
+             email="emma.jones@example.com"/>
+        <Person firstName="Michael" lastName="Brown" 
+             email="michael.brown@example.com"/>
+    </FXCollections>
+</items>
+</TableView>
+<HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" 
+          GridPane.rowIndex="2">
+          <TextField fx:id="firstNameField" promptText="First Name"
+               prefWidth="90"/>
+          <TextField fx:id="lastNameField" promptText="Last Name"
+               prefWidth="90"/>
+          <TextField fx:id="emailField" promptText="email"
+               prefWidth="150"/>
+          <Button text="Add" onAction="#addPerson"/>
+     </HBox>
+</GridPane>
   </content>
 </Tab>

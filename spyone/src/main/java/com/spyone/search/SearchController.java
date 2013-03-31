@@ -34,18 +34,23 @@ package com.spyone.search;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 
 @SuppressWarnings("restriction")
 public class SearchController implements Initializable {
 
-
+	@FXML
+	public Button searchButton;
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
+		if (searchButton != null) {
+			final DropShadow shadow = new DropShadow();
+			searchButton.setEffect(shadow);
+			
+		}
 	}
-    
- 
+
 }

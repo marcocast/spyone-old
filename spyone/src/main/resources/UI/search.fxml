@@ -18,7 +18,7 @@
         </HBox>
         <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
         <TextArea id="SearchTextArea" layoutX="10.0" layoutY="86.0" wrapText="true" />
-        <Button layoutX="227.0" layoutY="54.0" mnemonicParsing="false" text="Search" />
+        <Button fx:id="searchButton" layoutX="227.0" layoutY="54.0" mnemonicParsing="false" text="Search" />
       </children>
     </AnchorPane>
   </content>
