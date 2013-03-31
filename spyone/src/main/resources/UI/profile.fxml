@@ -8,56 +8,84 @@
 <?import javafx.scene.control.cell.*?> 
 <?import javafx.collections.*?> 
 <?import com.spyone.profile.*?> 
+<?import com.spyone.model.*?> 
+<?import com.spyone.util.*?> 
 
-<Tab fx:id="profileTab" text="Profile" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.profile.FXMLTableViewController">
+
+<Tab fx:id="profileTab" text="Profiles" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.profile.ProfileController">
   <content>
     <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
    
     <padding>
         <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
     </padding>
-    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Address Book"                
+    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Profiles"                
         GridPane.columnIndex="0" GridPane.rowIndex="0">
     </Label>
     <TableView editable="true" fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
      <columns>
-    <TableColumn fx:id="firstnameColumn" text="First Name" prefWidth="100">
-        <cellValueFactory><PropertyValueFactory property="firstName" />
+    <TableColumn fx:id="profileNameColumn" text="Profile Name" prefWidth="100">
+        <cellValueFactory><PropertyValueFactory property="profileName" />
         </cellValueFactory>
+        <cellFactory>
+          <FormattedTableCellFactory alignment="center">
+          </FormattedTableCellFactory>
+     </cellFactory>
      </TableColumn>
-     <TableColumn fx:id="lastnameColumn" text="Last Name" prefWidth="100">
-        <cellValueFactory><PropertyValueFactory property="lastName" />
+     <TableColumn fx:id="filePathColumn" text="File Path" prefWidth="100">
+        <cellValueFactory><PropertyValueFactory property="filePath" />
         </cellValueFactory>
+        <cellFactory>
+          <FormattedTableCellFactory alignment="center">
+          </FormattedTableCellFactory>
+     </cellFactory>
      </TableColumn>
-     <TableColumn fx:id="emailColumn" text="Email Address" prefWidth="200">
-        <cellValueFactory><PropertyValueFactory property="email" />
+     <TableColumn fx:id="hostColumn" text="Host" prefWidth="200">
+        <cellValueFactory><PropertyValueFactory property="host" />
         </cellValueFactory>
+        <cellFactory>
+          <FormattedTableCellFactory alignment="center">
+          </FormattedTableCellFactory>
+     </cellFactory>
+     </TableColumn>
+     <TableColumn fx:id="userColumn" text="User" prefWidth="200">
+        <cellValueFactory><PropertyValueFactory property="user" />
+        </cellValueFactory>
+        <cellFactory>
+          <FormattedTableCellFactory alignment="center">
+          </FormattedTableCellFactory>
+     </cellFactory>
+     </TableColumn>
+     <TableColumn fx:id="passwordColumn" text="Password" prefWidth="200">
+        <cellValueFactory><PropertyValueFactory property="password" />
+        </cellValueFactory>
+        <cellFactory>
+          <FormattedTableCellFactory alignment="center">
+          </FormattedTableCellFactory>
+     </cellFactory>
      </TableColumn>
 </columns>    
      <items>
     <FXCollections fx:factory="observableArrayList">
-        <Person firstName="Jacob" lastName="Smith"  
-             email="jacob.smith@example.com"/>
-        <Person firstName="Isabella" lastName="Johnson" 
-             email="isabella.johnson@example.com"/>
-        <Person firstName="Ethan" lastName="Williams" 
-             email="ethan.williams@example.com"/>
-        <Person firstName="Emma" lastName="Jones"
-             email="emma.jones@example.com"/>
-        <Person firstName="Michael" lastName="Brown" 
-             email="michael.brown@example.com"/>
+        <SpyOneProfile profileName="test" filePath="/opt/ciao.txt"  
+             host="localhost" user="" password=""/>
+       
     </FXCollections>
 </items>
 </TableView>
 <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" 
           GridPane.rowIndex="2">
-          <TextField fx:id="firstNameField" promptText="First Name"
+          <TextField fx:id="profileNameField" promptText="Profile Name"
                prefWidth="90"/>
-          <TextField fx:id="lastNameField" promptText="Last Name"
+          <TextField fx:id="filePathField" promptText="File path"
                prefWidth="90"/>
-          <TextField fx:id="emailField" promptText="email"
+          <TextField fx:id="hostField" promptText="Host"
                prefWidth="150"/>
-          <Button text="Add" onAction="#addPerson"/>
+          <TextField fx:id="userField" promptText="User"
+               prefWidth="150"/>
+          <TextField fx:id="passwordField" promptText="Password"
+               prefWidth="150"/>
+          <Button text="Add" onAction="#addSpyOneProfile"/>
      </HBox>
 </GridPane>
   </content>
