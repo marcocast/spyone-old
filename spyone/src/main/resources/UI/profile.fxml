@@ -22,47 +22,32 @@
     <Label style="-fx-font: NORMAL 20 Tahoma;" text="Profiles"                
         GridPane.columnIndex="0" GridPane.rowIndex="0">
     </Label>
-    <TableView editable="true" fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <TableView editable="true" fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1" id="profiles-table">
      <columns>
     <TableColumn fx:id="profileNameColumn" text="Profile Name" prefWidth="100">
         <cellValueFactory><PropertyValueFactory property="profileName" />
         </cellValueFactory>
-        <cellFactory>
-          <FormattedTableCellFactory alignment="center">
-          </FormattedTableCellFactory>
-     </cellFactory>
+        
      </TableColumn>
      <TableColumn fx:id="filePathColumn" text="File Path" prefWidth="100">
         <cellValueFactory><PropertyValueFactory property="filePath" />
         </cellValueFactory>
-        <cellFactory>
-          <FormattedTableCellFactory alignment="center">
-          </FormattedTableCellFactory>
-     </cellFactory>
+       
      </TableColumn>
      <TableColumn fx:id="hostColumn" text="Host" prefWidth="200">
         <cellValueFactory><PropertyValueFactory property="host" />
         </cellValueFactory>
-        <cellFactory>
-          <FormattedTableCellFactory alignment="center">
-          </FormattedTableCellFactory>
-     </cellFactory>
+       
      </TableColumn>
      <TableColumn fx:id="userColumn" text="User" prefWidth="200">
         <cellValueFactory><PropertyValueFactory property="user" />
         </cellValueFactory>
-        <cellFactory>
-          <FormattedTableCellFactory alignment="center">
-          </FormattedTableCellFactory>
-     </cellFactory>
+       
      </TableColumn>
      <TableColumn fx:id="passwordColumn" text="Password" prefWidth="200">
         <cellValueFactory><PropertyValueFactory property="password" />
         </cellValueFactory>
-        <cellFactory>
-          <FormattedTableCellFactory alignment="center">
-          </FormattedTableCellFactory>
-     </cellFactory>
+        
      </TableColumn>
 </columns>    
      <items>

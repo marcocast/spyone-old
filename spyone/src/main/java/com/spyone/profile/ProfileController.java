@@ -5,9 +5,6 @@ package com.spyone.profile;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.spyone.model.SpyOneProfile;
-import com.spyone.util.FormattedTableCellFactory;
-
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,8 +14,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.control.cell.TextFieldTableCell;
+
+import com.spyone.model.SpyOneProfile;
 
 @SuppressWarnings("restriction")
 public class ProfileController implements Initializable {
@@ -58,6 +56,7 @@ public class ProfileController implements Initializable {
     @SuppressWarnings("unchecked")
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	
+    	profileNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());    	
     	profileNameColumn.setOnEditCommit(
 	        new EventHandler<CellEditEvent<SpyOneProfile, String>>() {	   
 	            public void handle(CellEditEvent<SpyOneProfile, String> t) {	      
@@ -67,7 +66,8 @@ public class ProfileController implements Initializable {
 	            }
 	        }
 	    );
-
+    	
+    	filePathColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     	filePathColumn.setOnEditCommit(
 	        new EventHandler<CellEditEvent<SpyOneProfile, String>>() {
 	            public void handle(CellEditEvent<SpyOneProfile, String> t) {
@@ -78,6 +78,7 @@ public class ProfileController implements Initializable {
 	        }
 	    );
 
+    	hostColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     	hostColumn.setOnEditCommit(
 	        new EventHandler<CellEditEvent<SpyOneProfile, String>>() {
 	            public void handle(CellEditEvent<SpyOneProfile, String> t) {
@@ -88,6 +89,7 @@ public class ProfileController implements Initializable {
 	        }
 	    );
     	
+    	userColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     	userColumn.setOnEditCommit(
 	        new EventHandler<CellEditEvent<SpyOneProfile, String>>() {
 	            public void handle(CellEditEvent<SpyOneProfile, String> t) {
@@ -98,7 +100,7 @@ public class ProfileController implements Initializable {
 	        }
 	    );
     	
-    	
+    	passwordColumn.setCellFactory(TextFieldTableCell.forTableColumn());
     	passwordColumn.setOnEditCommit(
 	        new EventHandler<CellEditEvent<SpyOneProfile, String>>() {
 	            public void handle(CellEditEvent<SpyOneProfile, String> t) {

@@ -15,6 +15,7 @@ public class FormattedTableCellFactory<S, T> implements
 		Callback<TableColumn<S, T>, TableCell<S, T>> {
 	private TextAlignment alignment;
 	private Format format;
+	private boolean editable;
 
 	public TextAlignment getAlignment() {
 		return alignment;
@@ -22,6 +23,14 @@ public class FormattedTableCellFactory<S, T> implements
 
 	public void setAlignment(TextAlignment alignment) {
 		this.alignment = alignment;
+	}
+	
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
 	}
 
 	public Format getFormat() {
@@ -53,20 +62,9 @@ public class FormattedTableCellFactory<S, T> implements
 					super.setGraphic(null);
 				}
 			}
-		};
-		cell.setTextAlignment(alignment);
-		switch (alignment) {
-		case CENTER:
-			
-			cell.setAlignment(Pos.CENTER);
-			break;
-		case RIGHT:
-			cell.setAlignment(Pos.CENTER_RIGHT);
-			break;
-		default:
-			cell.setAlignment(Pos.CENTER_LEFT);
-			break;
-		}
+		};		
+		cell.setTextAlignment(TextAlignment.CENTER);
+		cell.setAlignment(Pos.CENTER);		
 		return cell;
 	}
 
