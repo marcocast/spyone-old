@@ -1,4 +1,4 @@
-package com.spyone.controllers;
+package com.spyone.gui.profiles;
 
 import java.net.URL;
 import java.util.ResourceBundle;
