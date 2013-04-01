@@ -12,7 +12,7 @@
 <?import com.spyone.util.*?> 
 
 
-<Tab fx:id="profileTab" text="Profiles" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.profile.ProfileController">
+<Tab fx:id="profileTab" text="Profiles" xmlns:fx="http://javafx.com/fxml" fx:controller="com.spyone.controllers.ProfileController">
   <content>
     <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
    
@@ -24,54 +24,51 @@
     </Label>
     <TableView editable="true" fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1" id="profiles-table">
      <columns>
-    <TableColumn fx:id="profileNameColumn" text="Profile Name" prefWidth="100">
-        <cellValueFactory><PropertyValueFactory property="profileName" />
-        </cellValueFactory>
-        
-     </TableColumn>
-     <TableColumn fx:id="filePathColumn" text="File Path" prefWidth="100">
-        <cellValueFactory><PropertyValueFactory property="filePath" />
-        </cellValueFactory>
-       
-     </TableColumn>
-     <TableColumn fx:id="hostColumn" text="Host" prefWidth="200">
-        <cellValueFactory><PropertyValueFactory property="host" />
-        </cellValueFactory>
-       
-     </TableColumn>
-     <TableColumn fx:id="userColumn" text="User" prefWidth="200">
-        <cellValueFactory><PropertyValueFactory property="user" />
-        </cellValueFactory>
-       
-     </TableColumn>
-     <TableColumn fx:id="passwordColumn" text="Password" prefWidth="200">
-        <cellValueFactory><PropertyValueFactory property="password" />
-        </cellValueFactory>
-        
-     </TableColumn>
-</columns>    
-     <items>
-    <FXCollections fx:factory="observableArrayList">
-        <SpyOneProfile profileName="test" filePath="/opt/ciao.txt"  
-             host="localhost" user="" password=""/>
-       
-    </FXCollections>
-</items>
-</TableView>
-<HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" 
-          GridPane.rowIndex="2">
-          <TextField fx:id="profileNameField" promptText="Profile Name"
-               prefWidth="90"/>
-          <TextField fx:id="filePathField" promptText="File path"
-               prefWidth="90"/>
-          <TextField fx:id="hostField" promptText="Host"
-               prefWidth="150"/>
-          <TextField fx:id="userField" promptText="User"
-               prefWidth="150"/>
-          <TextField fx:id="passwordField" promptText="Password"
-               prefWidth="150"/>
-          <Button text="Add" onAction="#addSpyOneProfile"/>
-     </HBox>
-</GridPane>
+	    <TableColumn fx:id="profileNameColumn" text="Profile Name" prefWidth="100">
+	        <cellValueFactory>
+	        	<PropertyValueFactory property="profileName" />
+	        </cellValueFactory>
+	     </TableColumn>
+	     
+	     <TableColumn fx:id="filePathColumn" text="File Path" prefWidth="100">
+	        <cellValueFactory>
+	        	<PropertyValueFactory property="filePath" />
+	        </cellValueFactory>
+	     </TableColumn>
+	     
+	     <TableColumn fx:id="hostColumn" text="Host" prefWidth="200">
+	        <cellValueFactory>
+	        	<PropertyValueFactory property="host" />
+	        </cellValueFactory>
+	     </TableColumn>
+	     
+	     <TableColumn fx:id="userColumn" text="User" prefWidth="200">
+	        <cellValueFactory>
+	        	<PropertyValueFactory property="user" />
+	        </cellValueFactory>
+	     </TableColumn>
+	     
+	     <TableColumn fx:id="passwordColumn" text="Password" prefWidth="200">
+	        <cellValueFactory>
+	        	<PropertyValueFactory property="password" />
+	        </cellValueFactory>
+	     </TableColumn>
+		</columns>
+	</TableView>
+	
+	<HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" GridPane.rowIndex="2">
+	      <TextField fx:id="profileNameField" promptText="Profile Name"
+	           prefWidth="90"/>
+	      <TextField fx:id="filePathField" promptText="File path"
+	           prefWidth="90"/>
+	      <TextField fx:id="hostField" promptText="Host"
+	           prefWidth="150"/>
+	      <TextField fx:id="userField" promptText="User"
+	           prefWidth="150"/>
+	      <TextField fx:id="passwordField" promptText="Password"
+	           prefWidth="150"/>
+	      <Button text="Add" onAction="#addSpyOneProfile"/>
+	 </HBox>
+	</GridPane>
   </content>
 </Tab>

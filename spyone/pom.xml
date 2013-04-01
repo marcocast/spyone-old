@@ -3,4 +3,13 @@
   <groupId>com.spyone</groupId>
   <artifactId>spyone</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+    <dependencies>
+		<dependency>
+			<groupId>com.googlecode.grep4j</groupId>
+			<artifactId>grep4j</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+	</dependencies>
+  
 </project>
